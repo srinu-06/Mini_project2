@@ -1,0 +1,36 @@
+# Stakeholder Report
+
+## Introduction
+This report provides actionable insights derived from the sales data of our e-commerce platform. The analysis focuses on key metrics such as category performance, regional sales, customer behavior, product popularity, and sales trends. These findings aim to guide strategic decisions to optimize sales and enhance customer engagement.
+
+## Insights and Recommendations
+
+### 1. Total Sales by Category
+- **Electronics** is the highest-grossing category with total sales of $1,490,990, indicating strong customer demand.
+- **Stationery** has the lowest sales at $3,120, suggesting potential underperformance or limited market interest.
+- **Recommendation**: Focus marketing efforts on Electronics to sustain growth. For Stationery, consider targeted promotions or reevaluating the product lineup.
+
+### 2. Region with the Highest Total Sales
+- The **West** region leads with total sales of $1,467,315, outperforming other regions significantly.
+- **Recommendation**: Analyze the factors driving success in the West, such as customer preferences or marketing strategies, and replicate these in underperforming regions.
+
+### 3. Average Order Value per Customer
+- The average order value per customer is approximately $757.34, reflecting a healthy spending pattern.
+- **Recommendation**: Introduce loyalty programs or discounts for repeat purchases to further increase the average order value.
+
+### 4. Top 5 Products by Sales Quantity
+- The top products are:
+  1. Yoga Mat (631 units)
+  2. Notebook (624 units)
+  3. Blender (617 units)
+  4. AirPods Pro (616 units)
+  5. Apple Watch (607 units)
+- **Recommendation**: Ensure sufficient stock of these products to meet demand and prioritize them in marketing campaigns.
+
+### 5. Monthly Sales Trend for the Last Year
+- Sales peaked in **June 2024** at $486,499, likely due to seasonal factors or successful campaigns.
+- Sales dipped in **May 2025** to $144,651, indicating a potential off-season or lack of promotions.
+- **Recommendation**: Investigate the reasons behind seasonal trends and plan targeted campaigns to address low-sales months.
+
+## Conclusion
+The analysis highlights key areas of strength, such as the Electronics category and the West region, while identifying opportunities for improvement, such as boosting Stationery sales and addressing seasonal dips. By implementing the recommendations, the company can optimize its sales strategy and enhance customer satisfaction. Further analysis and continuous monitoring are recommended to refine these strategies over time.
