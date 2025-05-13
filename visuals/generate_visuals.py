@@ -47,6 +47,38 @@ plt.ylabel('Total Sales ($)')
 plt.xticks(rotation=45)
 plt.savefig('visuals/monthly_sales_trend.png')
 
+# Visualization 4: Average Order Value per Customer
+query4 = """
+SELECT c.CustomerName, AVG(od.Quantity * p.UnitPrice) AS AvgOrderValue
+FROM Customers c
+JOIN Orders o ON c.CustomerID = o.CustomerID
+JOIN OrderDetails od ON o.OrderID = od.OrderID
+JOIN Products p ON od.ProductID = p.ProductID
+GROUP BY c.CustomerName;
+"""
+data4 = pd.read_sql_query(query4, conn)
+data4.plot(kind='bar', x='CustomerName', y='AvgOrderValue', title='Average Order Value per Customer', legend=False)
+plt.ylabel('Average Order Value ($)')
+plt.xticks(rotation=90)
+plt.tight_layout()
+plt.savefig('visuals/average_order_value.png')
+
+# Visualization 5: Top 5 Products by Sales Quantity
+query5 = """
+SELECT p.ProductName, SUM(od.Quantity) AS TotalQuantity
+FROM OrderDetails od
+JOIN Products p ON od.ProductID = p.ProductID
+GROUP BY p.ProductName
+ORDER BY TotalQuantity DESC
+LIMIT 5;
+"""
+data5 = pd.read_sql_query(query5, conn)
+data5.plot(kind='bar', x='ProductName', y='TotalQuantity', title='Top 5 Products by Sales Quantity', legend=False)
+plt.ylabel('Total Quantity Sold')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('visuals/top_5_products.png')
+
 # Close the connection
 conn.close()
 
