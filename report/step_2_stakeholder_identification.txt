@@ -2,7 +2,7 @@
 
 ## Stakeholder: Sales Manager
 
-The stakeholder for this project is the **Sales Manager** of our e-commerce platform. The Sales Manager plays a pivotal role in driving the company's success by making strategic decisions that optimize sales performance, address underperforming areas, and identify growth opportunities. Their responsibilities encompass a wide range of activities that are critical to the overall health and growth of the business.
+The stakeholder for this project is the ** Sales Manager ** of our e-commerce platform. The Sales Manager plays a pivotal role in driving the company's success by making strategic decisions that optimize sales performance, address underperforming areas, and identify growth opportunities. Their responsibilities encompass a wide range of activities that are critical to the overall health and growth of the business.
 
 ### Key Responsibilities
 
