@@ -1,42 +1,43 @@
--- Normalization of the dataset into 3NF
+-- Final 3NF Normalized SQL Schema
 
---- Create table for Regions (to remove transitive dependency)
+-- Table for unique Regions and their Countries
 CREATE TABLE Regions (
     RegionID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Region TEXT UNIQUE,
-    Country TEXT
+    Region TEXT NOT NULL UNIQUE,
+    Country TEXT NOT NULL,
+    UNIQUE (Region, Country)
 );
 
--- Create table for Customers
+-- Table for storing Customers
 CREATE TABLE Customers (
     CustomerID TEXT PRIMARY KEY,
-    CustomerName TEXT,
-    CustomerEmail TEXT
+    CustomerName TEXT NOT NULL,
+    CustomerEmail TEXT NOT NULL UNIQUE
 );
 
--- Create table for Products
+-- Table for storing Product catalog
 CREATE TABLE Products (
     ProductID TEXT PRIMARY KEY,
-    ProductName TEXT,
-    Category TEXT,
-    UnitPrice REAL
+    ProductName TEXT NOT NULL,
+    Category TEXT NOT NULL,
+    UnitPrice REAL NOT NULL CHECK (UnitPrice >= 0)
 );
 
--- Create table for Orders with foreign key to RegionID
+-- Table for Orders referencing Region and Customer
 CREATE TABLE Orders (
     OrderID TEXT PRIMARY KEY,
-    OrderDate DATE,
-    CustomerID TEXT,
-    RegionID INTEGER,
+    OrderDate DATE NOT NULL,
+    CustomerID TEXT NOT NULL,
+    RegionID INTEGER NOT NULL,
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
     FOREIGN KEY (RegionID) REFERENCES Regions(RegionID)
 );
 
--- Create table for OrderDetails (composite primary key)
+-- Table for Order Details (composite key per line item)
 CREATE TABLE OrderDetails (
     OrderID TEXT,
     ProductID TEXT,
-    Quantity INTEGER,
+    Quantity INTEGER NOT NULL CHECK (Quantity > 0),
     PRIMARY KEY (OrderID, ProductID),
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
     FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
