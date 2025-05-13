@@ -18,18 +18,19 @@ data1.plot(kind='bar', x='Category', y='TotalSales', title='Total Sales by Categ
 plt.ylabel('Total Sales ($)')
 plt.savefig('visuals/total_sales_by_category.png')
 
-# Visualization 2: Region with the Highest Total Sales
+# Visualization 2: Sales by Country (Updated from Region)
 query2 = """
-SELECT o.Region, SUM(od.Quantity * p.UnitPrice) AS TotalSales
+SELECT c.Country, SUM(od.Quantity * p.UnitPrice) AS TotalSales
 FROM Orders o
 JOIN OrderDetails od ON o.OrderID = od.OrderID
 JOIN Products p ON od.ProductID = p.ProductID
-GROUP BY o.Region;
+JOIN Customers c ON o.CustomerID = c.CustomerID
+GROUP BY c.Country;
 """
 data2 = pd.read_sql_query(query2, conn)
-data2.plot(kind='pie', y='TotalSales', labels=data2['Region'], autopct='%1.1f%%', title='Sales Distribution by Region')
+data2.plot(kind='pie', y='TotalSales', labels=data2['Country'], autopct='%1.1f%%', title='Sales Distribution by Country')
 plt.ylabel('')
-plt.savefig('visuals/sales_by_region.png')
+plt.savefig('visuals/sales_by_country.png')
 
 # Visualization 3: Monthly Sales Trend
 query3 = """
